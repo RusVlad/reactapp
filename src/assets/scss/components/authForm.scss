@@ -1,0 +1,21 @@
+.login-form {
+  max-width: 320px;
+  margin: 0 auto;
+
+  .errorMessage {
+    font-size: 15px;
+  }
+
+  button {
+    width: 100%;
+  }
+
+  .register-link {
+    font-size: 16px;
+    color: $defaultLinkColor;
+    margin: 10px auto 0;
+    display: inline-block;
+    width: 100%;
+    text-align: center;
+  }
+}

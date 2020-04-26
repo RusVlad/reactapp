@@ -1,0 +1,14 @@
+// user
+export const SET_USER_TOKEN = "SET_USER_TOKEN";
+
+// items
+export const GET_ITEMS = "GET_ITEMS";
+export const GET_ITEMS_SUCCESS = "GET_ITEMS_SUCCESS";
+export const GET_ITEM_SUCCESS = "GET_ITEM_SUCCESS";
+export const GET_ITEM = "GET_ITEM";
+export const SET_ITEM = "SET_ITEM";
+
+// confirmation modal
+export const SET_CONFIRMATION_MODAL_IS_OPEN = "SET_CONFIRMATION_MODAL_IS_OPEN";
+export const CALL_CONFIRMATION_FUNCTION = "CALL_CONFIRMATION_FUNCTION";
+export const SET_CONFIRMATION_FUNCTION = "SET_CONFIRMATION_FUNCTION";

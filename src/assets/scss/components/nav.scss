@@ -1,0 +1,52 @@
+#header {
+  width: 100%;
+  height: 50px;
+  background-color: $mainColor;
+  margin-bottom: 50px;
+
+  .nav-menu {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    height: 100%;
+    padding-right: 20px;
+
+    .nav-item {
+      color: $white;
+      font-size: 22px;
+      margin-left: 20px;
+      cursor: pointer;
+
+      &.nav-item-login {
+        margin-right: 0;
+        margin-left: auto;
+      }
+
+      &:hover {
+        color: $accentColor;
+      }
+
+      .nav-link {
+        color: inherit;
+        text-decoration: none;
+      }
+    }
+  }
+}
+
+@media only screen and (max-width: 460px) {
+  #header {
+    .nav-menu {
+      justify-content: space-between;
+      padding: 0 10px;
+
+      .nav-item {
+        margin: 0;
+
+        &.nav-item-login {
+          margin: 0;
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,202 @@
+/* fallback */
+@font-face {
+  font-family: "Material Icons";
+  font-style: normal;
+  font-weight: 400;
+  src: url(https://fonts.gstatic.com/s/materialicons/v50/flUhRq6tzZclQEJ-Vdg-IuiaDsNc.woff2)
+    format("woff2");
+}
+
+.material-icons {
+  font-family: "Material Icons";
+  font-weight: normal;
+  font-style: normal;
+  font-size: 24px;
+  line-height: 1;
+  letter-spacing: normal;
+  text-transform: none;
+  display: inline-block;
+  $white-space: nowrap;
+  word-wrap: normal;
+  direction: ltr;
+  -webkit-font-feature-settings: "liga";
+  -webkit-font-smoothing: antialiased;
+}
+
+html,
+body {
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.container {
+  padding: 0 25px;
+}
+
+.header {
+  margin-bottom: 20px;
+  text-transform: uppercase;
+}
+
+h2 {
+  font-size: 28px;
+}
+
+h3 {
+  font-size: 22px;
+}
+
+.nav-link {
+  font-size: 22px;
+  text-decoration: none;
+  color: $offActionColor;
+
+  &:hover {
+    color: $accentColor;
+  }
+}
+
+.modal {
+  .form {
+    .form-item {
+      input,
+      textarea {
+        max-width: 100%;
+      }
+    }
+  }
+}
+
+.errorMessage {
+  color: $accentColor;
+  margin: 10px auto;
+  text-align: center;
+
+  span {
+    display: inline-block;
+    width: 100%;
+    margin-bottom: 5px;
+  }
+}
+
+.form {
+  margin: 20px 0;
+  width: 100%;
+
+  .form-item {
+    width: 100%;
+    margin: 20px 0;
+    display: flex;
+    align-items: flex-start;
+    justify-content: flex-start;
+    flex-direction: column;
+
+    &.checkbox,
+    &.radio {
+      flex-direction: row;
+
+      label {
+        cursor: pointer;
+      }
+    }
+  }
+
+  label {
+    font-size: 18px;
+    margin: 0 10px 10px 0;
+  }
+
+  input,
+  textarea {
+    height: 30px;
+    font-size: 18px;
+    border: 1px solid $lightGray;
+    width: 100%;
+    max-width: 320px;
+    padding: 0 10px;
+    color: $mainColor;
+    border-radius: 2px;
+    background: $inputColor;
+    box-shadow: inset 2px 2px 3px -2px #4a4a4a;
+    line-height: 1.4;
+  }
+
+  textarea {
+    min-height: 100px;
+    max-height: 500px;
+    padding: 10px;
+  }
+
+  input[type="radio"],
+  input[type="checkbox"] {
+    height: 15px;
+    width: auto;
+  }
+
+  .form-checks {
+    display: flex;
+  }
+
+  button {
+    border: none;
+    background-color: $mainColor;
+    color: $white;
+    cursor: pointer;
+    font-size: 18px;
+    text-transform: uppercase;
+    padding: 5px 10px;
+    margin-top: 10px;
+    border-radius: 2px;
+
+    &:hover {
+      color: $accentColor;
+    }
+  }
+}
+
+.btn {
+  border: none;
+  background-color: $mainColor;
+  color: $white;
+  cursor: pointer;
+  font-size: 18px;
+  text-transform: uppercase;
+  padding: 5px 10px;
+  margin-top: 10px;
+  border-radius: 2px;
+  text-decoration: none;
+  line-height: 1.2;
+  display: inline-block;
+  height: 30px;
+
+  &.text {
+    background-color: unset;
+    color: $mainColor;
+
+    &:hover {
+      background-color: unset;
+      color: $accentColor;
+    }
+  }
+
+  &:not(:last-child) {
+    margin-right: 10px;
+  }
+
+  &.light {
+    background-color: $offActionColor;
+    color: $white;
+
+    &:hover {
+      background-color: lighten($color: $offActionColor, $amount: 10);
+      color: $white;
+    }
+  }
+
+  &:hover {
+    background-color: lighten($color: $mainColor, $amount: 10);
+  }
+}
+
+.actions {
+  display: flex;
+}

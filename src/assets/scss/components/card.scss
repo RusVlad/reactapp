@@ -1,0 +1,60 @@
+.card {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  height: 100%;
+
+  .title {
+    font-size: 20px;
+    margin-bottom: 20px;
+    text-transform: uppercase;
+    border-bottom: 1px solid rgb(224, 224, 224);
+    padding-bottom: 20px;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    button {
+      margin: 0;
+    }
+  }
+
+  .description {
+    font-size: 18px;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+    flex: 1;
+  }
+
+  .status {
+    margin-top: 10px;
+    font-size: 18px;
+    text-transform: uppercase;
+
+    &.published {
+      color: $actionColor;
+    }
+
+    &.unpublished {
+      color: $accentColor;
+    }
+  }
+
+  .price {
+    font-size: 24px;
+    color: $accentColor;
+    margin-top: 20px;
+    align-self: flex-end;
+    justify-self: flex-end;
+  }
+
+  .currency {
+    vertical-align: text-top;
+    font-size: 14px;
+  }
+}
