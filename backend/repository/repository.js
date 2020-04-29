@@ -1,0 +1,32 @@
+const Repository = {
+  getAll: async (model) => {
+    try {
+      return await model.find({});
+    } catch (error) {
+      throw error;
+    }
+  },
+  getOne: async (model, id) => {
+    try {
+      return await model.findOne({ _id: id });
+    } catch (error) {
+      throw error;
+    }
+  },
+  put: async (model, id, body) => {
+    try {
+      return await model.findByIdAndUpdate(id, body, { new: true });
+    } catch (err) {
+      throw err;
+    }
+  },
+  delete: async (model, id) => {
+    try {
+      return await model.findByIdAndRemove(id);
+    } catch (err) {
+      throw err;
+    }
+  },
+};
+
+export default Repository;

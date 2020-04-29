@@ -1,7 +1,7 @@
 import Joi from "@hapi/joi";
 
 // Register Validation
-export const registerValidation = (data) => {
+export const RegisterValidation = (data) => {
   const schema = Joi.object({
     username: Joi.string().min(6).required().messages({
       "string.base": `"Username" should be a type of 'String'`,
@@ -28,7 +28,7 @@ export const registerValidation = (data) => {
 };
 
 // Login Validation
-export const loginValidation = (data) => {
+export const LoginValidation = (data) => {
   const schema = Joi.object({
     email: Joi.string().email().min(6).required().messages({
       "string.base": `"Email" should be a type of 'String'`,
@@ -48,7 +48,7 @@ export const loginValidation = (data) => {
   return schema.validate(data, { abortEarly: false });
 };
 
-export const itemValidation = (data) => {
+export const ItemValidation = (data) => {
   const schema = Joi.object({
     title: Joi.string().min(1).required().messages({
       "string.empty": `"Title" cannot be an empty field`,

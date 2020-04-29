@@ -2,11 +2,11 @@ import express from "express";
 const router = express.Router();
 import User from "../models/user";
 import bcrypt from "bcryptjs";
-import { registerValidation } from "../validation";
+import { RegisterValidation } from "../validation";
 
 router.post("/", async (req, res) => {
   // Validate
-  const { error } = registerValidation(req.body);
+  const { error } = RegisterValidation(req.body);
   if (error) {
     let errorMessages = error.details.map((err) => err.message);
     return res.status(400).send({

@@ -1,14 +1,14 @@
 import express from "express";
 const router = express.Router();
 import UserModel from "../models/user";
-import { loginValidation } from "../validation";
+import { LoginValidation } from "../validation";
 import bcrypt from "bcryptjs";
 import jwt from "jsonwebtoken";
 import { verify } from "./verifyToken";
 
 router.post("/", async (req, res) => {
   // validation
-  const { error } = loginValidation(req.body);
+  const { error } = LoginValidation(req.body);
 
   if (error) {
     let errorMessages = error.details.map((err) => err.message);
