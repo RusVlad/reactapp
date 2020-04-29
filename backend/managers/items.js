@@ -1,11 +1,11 @@
-import Repository from "../repository/repository";
+import ItemsRepository from "../repository/items";
 import ItemModel from "../models/items";
 import { ItemValidation } from "../validation";
 
 const ItemsManager = {
   getAll: async () => {
     try {
-      const data = await Repository.getAll(ItemModel);
+      const data = await ItemsRepository.getAll(ItemModel);
       return data;
     } catch (err) {
       throw err;
@@ -13,7 +13,7 @@ const ItemsManager = {
   },
   getOne: async (id) => {
     try {
-      const data = await Repository.getOne(ItemModel, id);
+      const data = await ItemsRepository.getOne(ItemModel, id);
       return data;
     } catch (err) {
       throw err;
@@ -28,7 +28,7 @@ const ItemsManager = {
     }
 
     try {
-      const data = await Repository.put(ItemModel, id, body);
+      const data = await ItemsRepository.put(ItemModel, id, body);
       return data;
     } catch (err) {
       throw err;
@@ -36,7 +36,7 @@ const ItemsManager = {
   },
   delete: async (id) => {
     try {
-      const data = await Repository.delete(ItemModel, id);
+      const data = await ItemsRepository.delete(ItemModel, id);
       return data;
     } catch (err) {
       throw err;
@@ -50,7 +50,7 @@ const ItemsManager = {
     }
 
     try {
-      const data = await Repository.post(ItemModel, body);
+      const data = await ItemsRepository.post(ItemModel, body);
       return data;
     } catch (err) {
       throw err;

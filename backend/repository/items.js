@@ -1,4 +1,4 @@
-const Repository = {
+const ItemsRepository = {
   getAll: async (model) => {
     try {
       return await model.find({});
@@ -43,4 +43,4 @@ const Repository = {
   },
 };
 
-export default Repository;
+export default ItemsRepository;

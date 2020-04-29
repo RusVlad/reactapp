@@ -6,7 +6,7 @@ const ItemsController = {
       const data = await ItemsManager.getAll();
       res.status(200).send(data);
     } catch (error) {
-      res.json({ message: error });
+      res.json({ error: error });
     }
   },
   getOne: async (req, res) => {
@@ -15,7 +15,7 @@ const ItemsController = {
       const data = await ItemsManager.getOne(id);
       res.status(200).send(data);
     } catch (error) {
-      res.json({ message: error });
+      res.json({ error: error });
     }
   },
   put: async (req, res) => {
@@ -25,7 +25,7 @@ const ItemsController = {
       const data = await ItemsManager.put(id, body);
       res.status(200).send(data);
     } catch (error) {
-      res.json({ message: error });
+      res.json({ error: error });
     }
   },
   delete: async (req, res) => {
@@ -34,7 +34,7 @@ const ItemsController = {
       const data = await ItemsManager.delete(id);
       res.status(200).json(data);
     } catch (error) {
-      res.json({ message: error });
+      res.json({ error: error });
     }
   },
   createOne: async (req, res) => {
@@ -43,7 +43,7 @@ const ItemsController = {
       const data = await ItemsManager.post(body);
       res.status(200).send(data);
     } catch (error) {
-      res.json({ message: error });
+      res.json({ error: error });
     }
   },
 };
