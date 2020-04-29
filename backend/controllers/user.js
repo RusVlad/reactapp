@@ -1,6 +1,14 @@
 import UserManager from "../managers/user";
 
 const ItemsController = {
+  getUser: async (req, res) => {
+    try {
+      const data = UserManager.getUser(req.body);
+      res.status(200).send({ user: data });
+    } catch (error) {
+      res.json({ error: error });
+    }
+  },
   login: async (req, res) => {
     try {
       const token = await UserManager.login(req.body);

@@ -5,6 +5,14 @@ import bcrypt from "bcryptjs";
 import jwt from "jsonwebtoken";
 
 const UserManager = {
+  getUser: async (body) => {
+    try {
+      const data = UserRepository.findOne(UserModel, { email: body.email });
+      return data;
+    } catch (err) {
+      throw err;
+    }
+  },
   login: async (body) => {
     try {
       const { error } = LoginValidation(body);
@@ -15,7 +23,9 @@ const UserManager = {
       }
 
       // Find user
-      const user = await UserRepository.findOne(UserModel, body.email);
+      const user = await UserRepository.findOne(UserModel, {
+        email: body.email,
+      });
 
       if (!user) {
         throw ["Email or password is wrong"];
@@ -42,7 +52,9 @@ const UserManager = {
       }
 
       // Check availability
-      const emailExists = await UserRepository.findOne(UserModel, body.email);
+      const emailExists = await UserRepository.findOne(UserModel, {
+        email: body.email,
+      });
 
       if (emailExists) {
         throw ["User with that email already exists"];

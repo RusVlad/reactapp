@@ -1,7 +1,7 @@
 const UserRepository = {
-  findOne: async (model, email) => {
+  findOne: async (model, searchBy) => {
     try {
-      return await model.findOne({ email: email });
+      return await model.findOne(searchBy);
     } catch (error) {
       throw error;
     }
