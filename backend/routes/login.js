@@ -1,10 +1,10 @@
-const express = require("express");
+import express from "express";
 const router = express.Router();
-const User = require("../models/user");
-const { loginValidation } = require("../validation");
-const bcrypt = require("bcryptjs");
-const jwt = require("jsonwebtoken");
-const verify = require("./verifyToken");
+import UserModel from "../models/user";
+import { loginValidation } from "../validation";
+import bcrypt from "bcryptjs";
+import jwt from "jsonwebtoken";
+import { verify } from "./verifyToken";
 
 router.post("/", async (req, res) => {
   // validation
@@ -18,7 +18,7 @@ router.post("/", async (req, res) => {
   }
 
   // Find user
-  const user = await User.findOne({ email: req.body.email });
+  const user = await UserModel.findOne({ email: req.body.email });
 
   if (!user) {
     return res.status(400).send({
@@ -41,8 +41,8 @@ router.post("/", async (req, res) => {
 
 router.get("/user", verify, async (req, res) => {
   // validation
-  const user = await User.findOne({ email: req.body.email });
+  const user = await UserModel.findOne({ email: req.body.email });
   res.send({ user: user });
 });
 
-module.exports = router;
+export default router;

@@ -1,17 +1,17 @@
-const express = require("express");
+import express from "express";
 const router = express.Router();
-const Item = require("../models/items");
-const verify = require("./verifyToken");
-const { itemValidation } = require("../validation");
+import ItemModel from "../models/items";
+import { verify } from "./verifyToken";
+import { itemValidation } from "../validation";
 
 router.get("/", verify, async (req, res) => {
-  const items = await Item.find({});
+  const items = await ItemModel.find({});
   res.status(200).send(items);
 });
 
 router.get("/:id", verify, async (req, res) => {
   try {
-    const item = await Item.findOne({ _id: req.params.id });
+    const item = await ItemModel.findOne({ _id: req.params.id });
     res.status(200).send(item);
   } catch (err) {
     res.json({ message: err });
@@ -29,9 +29,13 @@ router.put("/:id", verify, async (req, res) => {
   }
 
   try {
-    const updatedItem = await Item.findByIdAndUpdate(req.params.id, req.body, {
-      new: true,
-    });
+    const updatedItem = await ItemModel.findByIdAndUpdate(
+      req.params.id,
+      req.body,
+      {
+        new: true,
+      }
+    );
     res.status(200).json(updatedItem);
   } catch (err) {
     res.json({ message: err });
@@ -40,7 +44,7 @@ router.put("/:id", verify, async (req, res) => {
 
 router.delete("/:id", verify, async (req, res) => {
   try {
-    const deletedItem = await Item.findByIdAndRemove(req.params.id);
+    const deletedItem = await ItemModel.findByIdAndRemove(req.params.id);
     res.json(deletedItem);
   } catch (err) {
     res.json({ message: err });
@@ -56,7 +60,7 @@ router.post("/", verify, async (req, res) => {
     });
   }
 
-  const item = new Item({
+  const item = new ItemModel({
     title: req.body.title,
     description: req.body.description,
     price: req.body.price,
@@ -71,4 +75,4 @@ router.post("/", verify, async (req, res) => {
   }
 });
 
-module.exports = router;
+export default router;

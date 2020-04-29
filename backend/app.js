@@ -1,17 +1,20 @@
-const express = require("express");
+import express from "express";
 const app = express();
-const mongoose = require("mongoose");
-const bodyParser = require("body-parser");
-var cors = require("cors");
-require("dotenv").config();
+import mongoose from "mongoose";
+import bodyParser from "body-parser";
+import cors from "cors";
+import dotenv from "dotenv";
 
+import itemsRoute from "./routes/items";
+import registerRoute from "./routes/register";
+import loginRoute from "./routes/login";
+import logoutRoute from "./routes/logout";
+
+dotenv.config();
 app.use(cors());
 app.use(bodyParser.json());
+
 // Import routes
-const itemsRoute = require("./routes/items");
-const registerRoute = require("./routes/register");
-const loginRoute = require("./routes/login");
-const logoutRoute = require("./routes/logout");
 
 app.use("/items", itemsRoute);
 app.use("/register", registerRoute);

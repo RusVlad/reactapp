@@ -1,7 +1,7 @@
-const Joi = require("@hapi/joi");
+import Joi from "@hapi/joi";
 
 // Register Validation
-const registerValidation = (data) => {
+export const registerValidation = (data) => {
   const schema = Joi.object({
     username: Joi.string().min(6).required().messages({
       "string.base": `"Username" should be a type of 'String'`,
@@ -28,7 +28,7 @@ const registerValidation = (data) => {
 };
 
 // Login Validation
-const loginValidation = (data) => {
+export const loginValidation = (data) => {
   const schema = Joi.object({
     email: Joi.string().email().min(6).required().messages({
       "string.base": `"Email" should be a type of 'String'`,
@@ -48,7 +48,7 @@ const loginValidation = (data) => {
   return schema.validate(data, { abortEarly: false });
 };
 
-const itemValidation = (data) => {
+export const itemValidation = (data) => {
   const schema = Joi.object({
     title: Joi.string().min(1).required().messages({
       "string.empty": `"Title" cannot be an empty field`,
@@ -70,7 +70,3 @@ const itemValidation = (data) => {
 
   return schema.validate(data, { abortEarly: false });
 };
-
-module.exports.registerValidation = registerValidation;
-module.exports.loginValidation = loginValidation;
-module.exports.itemValidation = itemValidation;

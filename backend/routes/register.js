@@ -1,8 +1,8 @@
-const express = require("express");
+import express from "express";
 const router = express.Router();
-const User = require("../models/user");
-const bcrypt = require("bcryptjs");
-const { registerValidation } = require("../validation");
+import User from "../models/user";
+import bcrypt from "bcryptjs";
+import { registerValidation } from "../validation";
 
 router.post("/", async (req, res) => {
   // Validate
@@ -48,4 +48,4 @@ router.post("/", async (req, res) => {
   }
 });
 
-module.exports = router;
+export default router;

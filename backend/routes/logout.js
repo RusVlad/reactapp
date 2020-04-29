@@ -1,4 +1,4 @@
-const express = require("express");
+import express from "express";
 const router = express.Router();
 
 // TODO
@@ -6,4 +6,4 @@ router.post("/", async (req, res) => {
   return res.status(200).send("Logged out");
 });
 
-module.exports = router;
+export default router;
