@@ -27,6 +27,20 @@ const Repository = {
       throw err;
     }
   },
+  post: async (model, body) => {
+    try {
+      const item = new model({
+        title: body.title,
+        description: body.description,
+        price: body.price,
+        published: body.published,
+      });
+
+      return await item.save();
+    } catch (err) {
+      throw err;
+    }
+  },
 };
 
 export default Repository;
