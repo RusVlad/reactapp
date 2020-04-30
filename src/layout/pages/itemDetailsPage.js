@@ -25,6 +25,7 @@ const ItemPage = () => {
     });
   };
 
+  // get items on mount
   useEffect(() => {
     let filterItem =
       storeItems.length > 0 && storeItems.find((data) => data._id === id);
@@ -35,6 +36,7 @@ const ItemPage = () => {
     }
   }, []);
 
+  // update items
   useEffect(() => {
     let filterItem = storeItems.find(
       (data) => data._id === id && data !== item
