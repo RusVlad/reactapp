@@ -13,6 +13,12 @@ const LoginPage = () => {
   let history = useHistory();
   let dispatch = useDispatch();
 
+  const handleLoginSuccess = (token) => {
+    localStorage.setItem("token", token);
+    dispatch(userActions.setUserToken(token));
+    history.push("/");
+  };
+
   const validateAndLogin = async () => {
     if (email && password) {
       let res = await RequestProvider.post("/login", {
@@ -21,9 +27,7 @@ const LoginPage = () => {
       });
 
       if (res.token) {
-        localStorage.setItem("token", res.token);
-        dispatch(userActions.setUserToken(res.token));
-        history.push("/");
+        handleLoginSuccess(res.token);
       } else {
         setErrors({ message: res.error });
       }

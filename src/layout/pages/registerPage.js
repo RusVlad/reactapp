@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { useHistory } from "react-router-dom";
+import { useHistory, NavLink } from "react-router-dom";
 
 import RequestProvider from "../../providers/requests";
 import AuthForm from "../../components/auth/authForm";
@@ -44,6 +44,9 @@ const RegisterPage = () => {
         </button>
       }
     >
+      <NavLink className="register-link" to="/login">
+        Login
+      </NavLink>
       <p className="errorMessage">
         {errors.message.map((err, index) => {
           return <span key={index}>{err}</span>;

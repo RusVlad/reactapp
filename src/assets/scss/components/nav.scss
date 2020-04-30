@@ -12,10 +12,13 @@
     padding-right: 20px;
 
     .nav-item {
-      color: $white;
       font-size: 22px;
-      margin-left: 20px;
+      height: 100%;
       cursor: pointer;
+
+      &:first-child {
+        margin-left: 15px;
+      }
 
       &.nav-item-login {
         margin-right: 0;
@@ -23,12 +26,20 @@
       }
 
       &:hover {
-        color: $accentColor;
+        background-color: lighten($color: $mainColor, $amount: 10);
       }
 
       .nav-link {
-        color: inherit;
+        height: 100%;
+        padding: 0 10px;
+        display: flex;
+        align-items: center;
+        color: darken($color: $white, $amount: 40);
         text-decoration: none;
+
+        &.active {
+          color: $white;
+        }
       }
     }
   }
