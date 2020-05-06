@@ -1,0 +1,10 @@
+.profile-details {
+  display: flex;
+  flex-direction: column;
+
+  span {
+    display: inline-block;
+    font-size: 20px;
+    margin-bottom: 25px;
+  }
+}

@@ -8,9 +8,9 @@ const DefaultRepositoryFunctions = (model) => ({
       throw error;
     }
   },
-  findOne: async (id) => {
+  findOne: async (searchBy) => {
     try {
-      return await DB.findOne(model, id);
+      return await DB.findOne(model, searchBy);
     } catch (error) {
       throw error;
     }

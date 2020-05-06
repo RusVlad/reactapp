@@ -12,7 +12,7 @@ const ItemsController = {
   findOne: async (req, res) => {
     try {
       const id = req.params.id;
-      const data = await ItemsRepository.findOne(id);
+      const data = await ItemsRepository.findOne({ _id: id });
       res.status(200).send(data);
     } catch (error) {
       res.json({ error: error });

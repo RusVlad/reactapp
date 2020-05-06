@@ -7,7 +7,7 @@ router.post("/", async (req, res) => {
   UserController.login(req, res);
 });
 
-router.get("/user", verify, async (req, res) => {
+router.post("/user", verify, async (req, res) => {
   UserController.getUser(req, res);
 });
 

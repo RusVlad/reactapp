@@ -3,7 +3,7 @@ import React from "react";
 const AboutPage = () => {
   return (
     <div className="container">
-      <h2 className="header">About</h2>
+      <h1 className="header">About</h1>
       <div>
         TODO:
         <br />
@@ -14,8 +14,11 @@ const AboutPage = () => {
         <input type="checkbox" checked disabled />
         <strike>Items Page with CRUD</strike>
         <br />
-        <input type="checkbox" disabled />
-        Profile details and picture / Change Password
+        <input type="checkbox" checked disabled />
+        <strike>Profile details / Nav profile dropdown</strike>
+        <br />
+        <input type="checkbox" checked disabled />
+        Profile picture / Change Password
         <br />
         <input type="checkbox" disabled />
         Mobile burger header menu

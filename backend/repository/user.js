@@ -7,6 +7,20 @@ import jwt from "jsonwebtoken";
 
 const UserRepository = {
   ...Repository(UserModel),
+  findOne: async (id) => {
+    try {
+      const data = await DB.findOne(UserModel, { _id: id });
+      const userData = {
+        email: data.email,
+        username: data.username,
+        _id: data._id,
+      };
+
+      return userData;
+    } catch (error) {
+      throw error;
+    }
+  },
   login: async (body) => {
     try {
       const { error } = LoginValidation(body);
@@ -32,7 +46,12 @@ const UserRepository = {
       }
 
       const token = jwt.sign({ _id: user._id }, process.env.TOKEN_SECRET);
-      return token;
+      return {
+        token: token,
+        _id: user._id,
+        username: user.username,
+        email: user.email,
+      };
     } catch (err) {
       throw err;
     }

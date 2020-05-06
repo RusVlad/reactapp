@@ -13,9 +13,17 @@ const LoginPage = () => {
   let history = useHistory();
   let dispatch = useDispatch();
 
-  const handleLoginSuccess = (token) => {
-    localStorage.setItem("token", token);
-    dispatch(userActions.setUserToken(token));
+  const handleLoginSuccess = (user) => {
+    localStorage.setItem("token", user.token);
+    localStorage.setItem("user_id", user._id);
+    dispatch(userActions.setUserToken(user.token));
+    dispatch(
+      userActions.setUser({
+        username: user.username,
+        email: user.email,
+        _id: user._id,
+      })
+    );
     history.push("/");
   };
 
@@ -27,7 +35,7 @@ const LoginPage = () => {
       });
 
       if (res.token) {
-        handleLoginSuccess(res.token);
+        handleLoginSuccess(res);
       } else {
         setErrors({ message: res.error });
       }
