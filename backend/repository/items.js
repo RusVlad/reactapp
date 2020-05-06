@@ -1,42 +1,34 @@
+import DB from "../database";
+import ItemModel from "../models/items";
+import { ItemValidation } from "../validation";
+import Repository from "./repository";
+
 const ItemsRepository = {
-  getAll: async (model) => {
-    try {
-      return await model.find({});
-    } catch (error) {
-      throw error;
+  ...Repository(ItemModel),
+  put: async (id, body) => {
+    const { error } = ItemValidation(body);
+
+    if (error) {
+      let errorMessages = error.details.map((err) => err.message);
+      throw errorMessages;
     }
-  },
-  getOne: async (model, id) => {
+
     try {
-      return await model.findOne({ _id: id });
-    } catch (error) {
-      throw error;
-    }
-  },
-  put: async (model, id, body) => {
-    try {
-      return await model.findByIdAndUpdate(id, body, { new: true });
+      return await DB.put(ItemModel, id, body);
     } catch (err) {
       throw err;
     }
   },
-  delete: async (model, id) => {
+  post: async (body) => {
     try {
-      return await model.findByIdAndRemove(id);
-    } catch (err) {
-      throw err;
-    }
-  },
-  post: async (model, body) => {
-    try {
-      const item = new model({
+      const item = new ItemModel({
         title: body.title,
         description: body.description,
         price: body.price,
         published: body.published,
       });
 
-      return await item.save();
+      return await DB.post(item);
     } catch (err) {
       throw err;
     }
