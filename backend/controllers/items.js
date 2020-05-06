@@ -1,18 +1,18 @@
-import ItemsManager from "../managers/items";
+import ItemsRepository from "../repository/items";
 
 const ItemsController = {
   getAll: async (req, res) => {
     try {
-      const data = await ItemsManager.getAll();
+      const data = await ItemsRepository.getAll();
       res.status(200).send(data);
     } catch (error) {
       res.json({ error: error });
     }
   },
-  getOne: async (req, res) => {
+  findOne: async (req, res) => {
     try {
       const id = req.params.id;
-      const data = await ItemsManager.getOne(id);
+      const data = await ItemsRepository.findOne(id);
       res.status(200).send(data);
     } catch (error) {
       res.json({ error: error });
@@ -22,7 +22,7 @@ const ItemsController = {
     try {
       const body = req.body;
       const id = req.params.id;
-      const data = await ItemsManager.put(id, body);
+      const data = await ItemsRepository.put(id, body);
       res.status(200).send(data);
     } catch (error) {
       res.json({ error: error });
@@ -31,7 +31,7 @@ const ItemsController = {
   delete: async (req, res) => {
     try {
       const id = req.params.id;
-      const data = await ItemsManager.delete(id);
+      const data = await ItemsRepository.delete(id);
       res.status(200).json(data);
     } catch (error) {
       res.json({ error: error });
@@ -40,7 +40,7 @@ const ItemsController = {
   createOne: async (req, res) => {
     try {
       const body = req.body;
-      const data = await ItemsManager.post(body);
+      const data = await ItemsRepository.post(body);
       res.status(200).send(data);
     } catch (error) {
       res.json({ error: error });

@@ -8,7 +8,7 @@ router.get("/", verify, async (req, res) => {
 });
 
 router.get("/:id", verify, async (req, res) => {
-  ItemsController.getOneById(req, res);
+  ItemsController.findOne(req, res);
 });
 
 router.put("/:id", verify, async (req, res) => {
