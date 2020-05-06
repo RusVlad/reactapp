@@ -42,7 +42,7 @@ const NewItemPage = () => {
 
   return (
     <div className="container item-page">
-      <h2 className="header">New Item</h2>
+      <h1 className="header">New Item</h1>
       <ItemForm
         submitFunction={confirmCreateItem}
         item={newItem}

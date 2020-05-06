@@ -23,7 +23,7 @@ const HomePage = () => {
 
   return (
     <div className="container">
-      <h2 className="header">Home</h2>
+      <h1 className="header">Home</h1>
       {publishedItems.length > 0 && (
         <div>
           <h3 className="header">Published items</h3>

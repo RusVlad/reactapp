@@ -5,7 +5,7 @@ import NavButton from "../common/navButton";
 const Items = (props) => {
   return (
     <div className="container">
-      <h2 className="header">Items</h2>
+      <h1 className="header">Items</h1>
       <div className="items-actions">
         <div className="filter-section">
           {props.searchForm}

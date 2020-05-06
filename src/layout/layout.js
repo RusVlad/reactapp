@@ -13,6 +13,7 @@ import LoginPage from "./pages/loginPage";
 import RegisterPage from "../layout/pages/registerPage";
 import AboutPage from "../layout/pages/aboutPage";
 import HomePage from "../layout/pages/homePage";
+import ProfilePage from "../layout/pages/profilePage";
 
 // auth
 import * as userActions from "../store/actions/userActions";
@@ -31,6 +32,9 @@ const Layout = () => {
         <Switch>
           <PrivateRoute exact path="/">
             <HomePage />
+          </PrivateRoute>
+          <PrivateRoute exact path="/profile">
+            <ProfilePage />
           </PrivateRoute>
           <PrivateRoute exact path="/items">
             <ItemsPage />

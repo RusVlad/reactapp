@@ -1,6 +1,7 @@
 export default {
   userReducer: {
     token: null,
+    user: {},
   },
   itemsReducer: {
     items: [],

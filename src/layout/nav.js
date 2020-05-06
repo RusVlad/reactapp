@@ -4,6 +4,7 @@ import { NavLink } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 
 import * as UserActions from "../store/actions/userActions";
+import Dropdown from "../components/nav/dropdown";
 
 const Nav = () => {
   const dispatch = useDispatch();
@@ -28,9 +29,18 @@ const Nav = () => {
             );
           })}
         {token && (
-          <li onClick={logout} className="nav-item nav-item-login">
-            <span className="nav-link">Logout</span>
-          </li>
+          <Dropdown
+            icon={<i className="material-icons nav-profile-icon">person</i>}
+          >
+            <li className="nav-item">
+              <NavLink exact className="nav-link" to="/profile">
+                Profile
+              </NavLink>
+            </li>
+            <li onClick={logout} className="nav-item">
+              <span className="nav-link">Logout</span>
+            </li>
+          </Dropdown>
         )}
       </ul>
     </header>

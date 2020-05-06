@@ -3,16 +3,18 @@ import UserRepository from "../repository/user";
 const ItemsController = {
   getUser: async (req, res) => {
     try {
-      const data = UserRepository.findOne(req.body);
-      res.status(200).send({ user: data });
+      const data = await UserRepository.findOne(req.body.id);
+
+      res.status(200).send(data);
     } catch (error) {
       res.json({ error: error });
     }
   },
   login: async (req, res) => {
     try {
-      const token = await UserRepository.login(req.body);
-      res.header("auth-token", token).send({ token: token });
+      const data = await UserRepository.login(req.body);
+
+      res.header("auth-token", data.token).send(data);
     } catch (error) {
       res.json({ error: error });
     }

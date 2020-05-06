@@ -11,6 +11,13 @@
     height: 100%;
     padding-right: 20px;
 
+    .nav-profile-icon {
+      background-color: #fff;
+      border-radius: 100%;
+      font-size: 30px;
+      color: $mainColor;
+    }
+
     .nav-item {
       font-size: 22px;
       height: 100%;
@@ -20,7 +27,7 @@
         margin-left: 15px;
       }
 
-      &.nav-item-login {
+      &.nav-item-profile {
         margin-right: 0;
         margin-left: auto;
       }
@@ -43,6 +50,47 @@
       }
     }
   }
+
+  .nav-item-profile {
+    position: relative;
+
+    .profile-menu {
+      display: none;
+
+      .nav-item {
+        margin: 0 0 10px 0;
+
+        &:last-child {
+          margin: 0;
+        }
+      }
+
+      &.active {
+        display: block;
+      }
+    }
+  }
+
+  .profile-menu {
+    display: block;
+    background-color: $mainColor;
+    padding: 20px 10px 15px;
+    position: absolute;
+    top: 60px;
+    right: -10px;
+    border-radius: 5px;
+
+    &::before {
+      content: "";
+      position: absolute;
+      top: -5px;
+      right: 30px;
+      border-left: 5px solid transparent;
+      border-right: 5px solid transparent;
+
+      border-bottom: 5px solid $mainColor;
+    }
+  }
 }
 
 @media only screen and (max-width: 460px) {
@@ -54,7 +102,7 @@
       .nav-item {
         margin: 0;
 
-        &.nav-item-login {
+        &.nav-item-profile {
           margin: 0;
         }
       }
