@@ -15,7 +15,7 @@ module.exports = {
   mode: "development",
   target: "web",
   devtool: "cheap-module-source-map",
-  entry: "./src/index",
+  entry: ["babel-polyfill", "./src/index"],
   output: {
     path: path.resolve(__dirname, "build"),
     publicPath: "/",

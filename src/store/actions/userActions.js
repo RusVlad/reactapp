@@ -16,3 +16,17 @@ export const getUser = (id) => {
     });
   };
 };
+
+export const updateProfile = (body) => {
+  return async (dispatch) => {
+    const formData = new FormData();
+
+    for (let i in body) {
+      formData.append(i, body[i]);
+    }
+
+    RequestProvider.postFormData("/login/profile", formData).then((res) => {
+      dispatch(setUser(res));
+    });
+  };
+};

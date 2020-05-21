@@ -22,6 +22,7 @@ import NewItemPage from "./pages/newItemPage";
 
 const Layout = () => {
   const dispatch = useDispatch();
+
   const token = localStorage.getItem("token");
   dispatch(userActions.setUserToken(token));
 

@@ -8,3 +8,31 @@
     margin-bottom: 25px;
   }
 }
+
+.profile-img {
+  max-width: 320px;
+
+  img {
+    width: 100%;
+  }
+}
+
+.img-preview {
+  width: 100%;
+  height: auto;
+
+  .img-container {
+    max-width: 160px;
+    max-height: 200px;
+  }
+
+  .preview-label {
+    font-size: 18px;
+    display: inline-block;
+    margin-bottom: 10px;
+  }
+
+  img {
+    width: 100%;
+  }
+}

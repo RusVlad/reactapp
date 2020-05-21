@@ -31,7 +31,7 @@ const Dropdown = (props) => {
 
   return (
     <li className="nav-item nav-item-profile" ref={dropdownNode}>
-      <span className="nav-link" onClick={() => setOpen(!open)}>
+      <span className="nav-link profile-icon" onClick={() => setOpen(!open)}>
         {props.text ? props.text : icon}
       </span>
 
