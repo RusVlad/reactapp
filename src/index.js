@@ -1,3 +1,8 @@
+import "react-app-polyfill/ie9";
+import "react-app-polyfill/stable";
+
+import "babel-polyfill";
+
 import React from "react";
 import "./assets/scss/main.scss";
 import { render } from "react-dom";

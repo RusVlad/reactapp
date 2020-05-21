@@ -25,12 +25,33 @@ const requestFunction = async (url, type, params) => {
   }
 };
 
+const formDataRequestFunction = async (url, params) => {
+  try {
+    let res = await fetch(`${API_URL}${url}`, {
+      method: "POST",
+      mode: "cors",
+      cache: "no-cache",
+      headers: {
+        Authorization: localStorage.getItem("token"),
+      },
+      body: params,
+    });
+    let data = await res.json();
+    return data;
+  } catch (error) {
+    console.log(error);
+  }
+};
+
 const RequestProvider = {
   get: async (url) => {
     return await requestFunction(url, "GET");
   },
   post: async (url, params) => {
     return await requestFunction(url, "POST", params);
+  },
+  postFormData: async (url, params) => {
+    return await formDataRequestFunction(url, params);
   },
   delete: async (url) => {
     return await requestFunction(url, "DELETE");

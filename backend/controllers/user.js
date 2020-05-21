@@ -1,13 +1,29 @@
 import UserRepository from "../repository/user";
 
 const ItemsController = {
+  updateProfile: async (req, res) => {
+    try {
+      const { _id: id, ...userInfo } = req.body;
+      const data = await UserRepository.updateProfile(
+        {
+          ...userInfo,
+          image: `${process.env.API_URL}/uploads/${req.file.filename}`,
+        },
+        id
+      );
+
+      res.status(200).send(data);
+    } catch (error) {
+      res.json({ error });
+    }
+  },
   getUser: async (req, res) => {
     try {
       const data = await UserRepository.findOne(req.body.id);
 
       res.status(200).send(data);
     } catch (error) {
-      res.json({ error: error });
+      res.json({ error });
     }
   },
   login: async (req, res) => {
@@ -16,7 +32,7 @@ const ItemsController = {
 
       res.header("auth-token", data.token).send(data);
     } catch (error) {
-      res.json({ error: error });
+      res.json({ error });
     }
   },
   register: async (req, res) => {
@@ -27,7 +43,7 @@ const ItemsController = {
         user: savedUser._id,
       });
     } catch (error) {
-      res.json({ error: error });
+      res.json({ error });
     }
   },
 };

@@ -17,13 +17,7 @@ const LoginPage = () => {
     localStorage.setItem("token", user.token);
     localStorage.setItem("user_id", user._id);
     dispatch(userActions.setUserToken(user.token));
-    dispatch(
-      userActions.setUser({
-        username: user.username,
-        email: user.email,
-        _id: user._id,
-      })
-    );
+    dispatch(userActions.setUser(user));
     history.push("/");
   };
 

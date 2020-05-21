@@ -12,7 +12,8 @@ import logoutRoute from "./routes/logout";
 
 dotenv.config();
 app.use(cors());
-app.use(bodyParser.json());
+app.use("/uploads", express.static("uploads"));
+app.use(bodyParser.json({ limit: "50mb" }));
 
 // Import routes
 

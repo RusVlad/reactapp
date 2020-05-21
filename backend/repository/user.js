@@ -7,6 +7,21 @@ import jwt from "jsonwebtoken";
 
 const UserRepository = {
   ...Repository(UserModel),
+  updateProfile: async (body, id) => {
+    try {
+      const data = await DB.put(UserModel, id, body);
+
+      const newUser = {
+        username: data.username,
+        email: data.email,
+        _id: data._id,
+        image: data.image,
+      };
+      return newUser;
+    } catch (error) {
+      throw error;
+    }
+  },
   findOne: async (id) => {
     try {
       const data = await DB.findOne(UserModel, { _id: id });
@@ -14,6 +29,7 @@ const UserRepository = {
         email: data.email,
         username: data.username,
         _id: data._id,
+        image: data.image,
       };
 
       return userData;
@@ -51,6 +67,7 @@ const UserRepository = {
         _id: user._id,
         username: user.username,
         email: user.email,
+        image: user.image,
       };
     } catch (err) {
       throw err;

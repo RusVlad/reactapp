@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { NAV_ITEMS } from "../constants";
 import { NavLink } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
@@ -9,10 +9,28 @@ import Dropdown from "../components/nav/dropdown";
 const Nav = () => {
   const dispatch = useDispatch();
   const token = useSelector((state) => state.userReducer.token);
+  const user = useSelector((state) => state.userReducer.user);
+
+  useEffect(() => {
+    if (token && !user._id) {
+      dispatch(UserActions.getUser(localStorage.getItem("user_id")));
+    }
+  }, []);
 
   const logout = () => {
     localStorage.removeItem("token");
+    localStorage.removeItem("user_id");
     dispatch(UserActions.setUserToken(""));
+  };
+
+  const getProfileImage = () => {
+    return (
+      <img src={user.image} alt="profile image" className="nav-profile-icon" />
+    );
+  };
+
+  const getProfileIcon = () => {
+    return <i className="material-icons nav-profile-icon">person</i>;
   };
 
   return (
@@ -29,9 +47,7 @@ const Nav = () => {
             );
           })}
         {token && (
-          <Dropdown
-            icon={<i className="material-icons nav-profile-icon">person</i>}
-          >
+          <Dropdown icon={user.image ? getProfileImage() : getProfileIcon()}>
             <li className="nav-item">
               <NavLink exact className="nav-link" to="/profile">
                 Profile

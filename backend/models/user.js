@@ -23,6 +23,10 @@ const UsersSchema = mongoose.Schema({
     type: Date,
     deafult: Date.now,
   },
+  image: {
+    type: String,
+    required: false,
+  },
 });
 
 export default mongoose.model("User", UsersSchema);
