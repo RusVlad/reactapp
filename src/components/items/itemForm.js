@@ -43,6 +43,7 @@ const ItemForm = (props) => {
             props.setEditItem({ ...item, price: Number(ev.target.value) })
           }
           type="number"
+          step="0.01"
         />
       </div>
       <div className="form-item checkbox">

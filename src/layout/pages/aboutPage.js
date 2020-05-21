@@ -17,7 +17,7 @@ const AboutPage = () => {
         <input type="checkbox" checked disabled />
         <strike>Profile details / Nav profile dropdown</strike>
         <br />
-        <input type="checkbox" checked disabled />
+        <input type="checkbox" disabled />
         Profile picture / Change Password
         <br />
         <input type="checkbox" disabled />
